@@ -1,8 +1,11 @@
 name: Build LaTeX document
+
 on: [push]
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: build pdf
-      - run: paper/make
+        run: paper/make
