@@ -10,4 +10,4 @@ jobs:
       - name: move to paper
         run: cd paper
       - name: build pdf
-        run: make
+        run: ls
