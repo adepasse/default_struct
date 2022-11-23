@@ -6,8 +6,7 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: move to paper
-        run: cd paper
+      - name: checkout repo
+        uses: actions/checkout@v2
       - name: build pdf
-        run: ls
+        run: make -C paper/
