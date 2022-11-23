@@ -1,2 +1,1 @@
 src/_version.py export-subst
-src/default_struct/_version.py export-subst

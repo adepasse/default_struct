@@ -1,6 +1,5 @@
 from setuptools import setup
 import sys
-import versioneer
 
 if __name__ == "__main__":
 
@@ -15,7 +14,4 @@ if __name__ == "__main__":
     else:
         print("Confirmed Python version %s.%s.%s or above" % min_python_version[:3])
 
-    setup(
-        version=versioneer.get_version(),
-        cmdclass=versioneer.get_cmdclass()
-    )
+    setup()
