@@ -1,44 +1,8 @@
-name: Build LaTeX document & latexdiff to previous tagged version.
-on: [push, pull_request]
+name: Build LaTeX document
+on: [push]
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout new version
-        uses: actions/checkout@v2
-        with:
-          path: new
-          fetch-depth: 0
-      - name: Set last tag value
-        run: |
-          echo ::set-output name=LAST_TAG_NAME::"$(cd new && git describe --tag HEAD^ --abbrev=0)"
-        id: tag_val_stp
-      - name: Checkout old version
-        uses: actions/checkout@v2
-        with:
-          path: old
-          ref: ${{ steps.tag_val_stp.outputs.LAST_TAG_NAME }}
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: paper/main.tex
-          working_directory: new/
-      - name: Install latexdiff
-        run: sudo apt-get install latexdiff
-      - name: Run latexdiff
-        run: latexdiff -t UNDERLINE --verbose --no-links --flatten old/paper.tex new/paper.tex > new/diff.tex
-      - name: Compile LaTeX difference document
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: diff.tex
-          working_directory: new/
-      - name: Check pdf files
-        run: |
-          file new/diff.pdf | grep -q ' PDF '
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: paper
-          path: |
-            new/diff.pdf
-            new/paper.pdf
+      - name: build pdf
+        run: paper/make
