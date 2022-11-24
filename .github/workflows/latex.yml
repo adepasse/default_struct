@@ -10,9 +10,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: paper/main.tex
-          post_compile: latexmk -c
       - name: Download pdf
-        uses: aochmann/actions-download-artifact@1.0.0
+        uses: actions/download-artifact@v3
         with:
-          artifact_name: main.pdf
+          name: main.pdf
           path: paper/
