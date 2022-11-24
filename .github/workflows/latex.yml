@@ -10,6 +10,10 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: paper/main.tex
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: main.pdf
       - name: Download pdf
         uses: actions/download-artifact@v3
         with:
