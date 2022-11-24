@@ -8,7 +8,10 @@ pdf:
 	rm ${filename}.dvi
 	ps2pdf ${filename}.ps
 	rm ${filename}.ps
-	
+
+read:
+	evince ${filename}.pdf &
+
 remove_pdf:
 	rm ${filename}.pdf
 
