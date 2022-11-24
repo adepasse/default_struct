@@ -1,3 +1,11 @@
+# Paper and Plots
+paper/*.pdf
+paper/plots/*.png
+paper/plots/*.pdf
+paper/plots/*.jpeg
+paper/plots/*.jpg
+paper/plots/*.gif
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
